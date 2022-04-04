@@ -1,0 +1,2 @@
+public class FIb1 {
+}
