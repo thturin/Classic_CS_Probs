@@ -1,0 +1,36 @@
+import java.util.HashMap;
+import java.util.Map;
+public class Fib {
+
+    static Map<Integer, Integer> memo= new HashMap<>(Map.of(0,0,1,1)); //create a map with 0->0 and 1->1 (base cases)
+
+    private static int fib1(int n){ //constructor
+        return fib1(n-1)+fib1(n-2);
+    }
+
+    private static int fib2(int n){
+        if(n<2){
+            return n;
+        }
+        return fib2(n-1)+fib2(n-2);
+    }
+
+    private static int fib3(int n){
+        if(!memo.containsKey(n)){ //if the hash map doesn't contain a key with n,
+            //memoization step
+            memo.put(n,fib3(n-1)+fib3(n-2));
+        }
+        return memo.get(n);
+    }
+
+
+
+
+    public static void main(String[] args) {
+        //fib1(10); //will create an infinite loop
+        //System.out.println(fib2(4));
+        System.out.println(fib3(4));
+        System.out.println(memo);
+    }
+
+}
