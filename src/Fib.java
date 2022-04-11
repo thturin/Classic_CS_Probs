@@ -1,8 +1,11 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.IntStream;
+
 public class Fib {
 
     static Map<Integer, Integer> memo= new HashMap<>(Map.of(0,0,1,1)); //create a map with 0->0 and 1->1 (base cases)
+    private int last =0, next =1;
 
     private static int fib1(int n){ //constructor
         return fib1(n-1)+fib1(n-2);
@@ -32,6 +35,10 @@ public class Fib {
         }
         return memo.get(n);
     }
+
+  public IntStream stream(){
+
+  }
 
 
 
