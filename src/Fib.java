@@ -15,6 +15,16 @@ public class Fib {
         return fib2(n-1)+fib2(n-2);
     }
 
+    private static int fib4(int n){ //old-fashioned iterative apporach
+        int last =0, next =1; //fib(0), fib(1)
+        for (int i =0;i<n;i++){
+            int oldLast = last;
+            last = next;
+            next = oldLast + next;
+        }
+        return last;
+    }
+
     private static int fib3(int n){
         if(!memo.containsKey(n)){ //if the hash map doesn't contain a key with n,
             //memoization step
@@ -29,8 +39,11 @@ public class Fib {
     public static void main(String[] args) {
         //fib1(10); //will create an infinite loop
         //System.out.println(fib2(4));
-        System.out.println(fib3(4));
-        System.out.println(memo);
+
+        //System.out.println(fib3(5));
+        //System.out.println(memo);
+
+         System.out.println(fib4(3));
     }
 
 }
