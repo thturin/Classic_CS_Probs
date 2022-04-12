@@ -36,9 +36,14 @@ public class Fib {
         return memo.get(n);
     }
 
-  public IntStream stream(){
-
-  }
+    public  IntStream stream(){
+       return IntStream.generate(() -> {
+           int oldLast = last;
+           last=next;
+           next =  oldLast + next;
+           return oldLast;
+       });
+    }
 
 
 
@@ -50,7 +55,11 @@ public class Fib {
         //System.out.println(fib3(5));
         //System.out.println(memo);
 
-         System.out.println(fib4(3));
+         //System.out.println(fib4(3));
+
+        Fib fib = new Fib();
+        fib.stream().limit(41).forEachOrdered(System.out::println);
+
     }
 
 }
