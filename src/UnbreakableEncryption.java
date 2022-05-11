@@ -1,4 +1,4 @@
-import java.util.Random;
+/*import java.util.Random;
 public class UnbreakableEncryption {
     //generate *length* random bytes
     private static byte[]  randomKey(int length){  //creates a byte array filled with length random bytes.
@@ -27,4 +27,4 @@ public class UnbreakableEncryption {
         }
         return new String(decrypted);
     }
-}/
+}*/
